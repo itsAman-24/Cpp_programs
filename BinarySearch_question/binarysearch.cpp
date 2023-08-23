@@ -1,5 +1,6 @@
 #include <iostream>
-using namespace std;                                                    //Program to search element in array 
+using namespace std; // Program to search element in array
+
 int binarysearch(int arr[], int start, int end, int key)
 {
 
