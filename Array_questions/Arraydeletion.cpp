@@ -24,8 +24,8 @@ int main()
             {
                 arr[j] = arr[j+1];
                 found = 1;
-                i--;
-                num--;
+                // i--;
+                // num--;
 
             }
         }
