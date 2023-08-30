@@ -21,23 +21,24 @@ int main() {
         mid = s +(e-s)/2;
     }
 
-    
+
      
     cout<<"The Pivot element is ::"<<arr[e]<<endl;
 
-    int key;
-    cout<<"Enter the key"<<endl;
+    int key;                                          //Additional code for searching in rotated sorted array
+    cout<<"Enter the key to search"<<endl;
     cin>>key;
 
 
     if(arr[e] <= key <= arr[8]) {
+        cout<<"bjfv"<<endl;
         int srt = e;
         int end = 8;
         int mid = srt+(end-srt)/2;
-  
+  cout<<"bjfv"<<endl;
         while(srt < end) {
             if(arr[mid] == key) {
-                return key;
+                return mid;
             }
 
             else if(arr[mid] > key) {
@@ -49,17 +50,18 @@ int main() {
             }
         }
 
-        cout<<key<<endl;
+        cout<<mid<<endl;
     }
 
     else {
+        cout<<"ppp"<<endl;
         int srt = 0;
         int end = e-1;
         int mid = srt+(end-srt)/2;
   
         while(srt < end) {
             if(arr[mid] == key) {
-                return key;
+                return mid;
             }
 
             else if(arr[mid] > key) {
@@ -70,6 +72,6 @@ int main() {
                 srt = mid + 1;
             }
     }
-    cout<<key<<endl;
+    cout<<mid<<endl;
   }
 }
