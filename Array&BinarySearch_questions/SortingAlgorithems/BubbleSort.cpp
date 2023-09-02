@@ -2,9 +2,10 @@
 using namespace std;
 void sort(int arr[], int size) {
 
-    for(int i = 1; i < (size-1); i++) {
+    for(int i = 1; i < (size-1); i++) {  // showing the rounds                          time complexcity O(n^2)
+                                                                                    //  space complexcity O(1)
 
-        for(int j = 0; j < (size-i); j++) {
+        for(int j = 0; j < (size-i); j++) {  // showing the steps in each round
 
             if(arr[j] > arr[j+1]) {
                 swap(arr[j], arr[j+1]);

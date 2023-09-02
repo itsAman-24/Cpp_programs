@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void selectionSort(int arr[], int size) {
+void selectionSort(int arr[], int size) {                // time complexcity O(n^2)  space complexcity O(1)
     for(int i = 0; i < (size-1); i++) {
 
         int minIndex = i;
