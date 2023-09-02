@@ -1,20 +1,22 @@
 #include <iostream>
 using namespace std;
 
-int SquareRoot( int arr[], int num,int size ) {
-    int s = 0;
-    int e = size -1;
-    int mid = s+(e-s)/2;
-    int ans = -1;
+long long int SquareRoot( int arr[], int num,int size ) {
+    long long int s = 0;
+    long long int e = size -1;
+    long long int mid = s+(e-s)/2;
+    long long int ans = -1;
 
     while(s <= e) {
+
+      long long int square = arr[mid] * arr[mid];
       
-      if(arr[mid] * arr[mid] == num) {
-        return mid;
+      if(square == num) {
+        return arr[mid];
       }
 
-      else if(arr[mid] * arr[mid] < num) {
-        ans = mid;
+      if(square < num) {
+        ans = arr[mid];
         s = mid + 1;
       }
 
@@ -31,19 +33,27 @@ int SquareRoot( int arr[], int num,int size ) {
 int main() {
     int size;
     int num;
-    cout<<"Enter the size of array:"<<endl;
-    cin>>size;
-     cout<<"Enter the number to find Square root:"<<endl;
+    cout <<" Enter the size of array:" << endl;
+    cin >> size;
+     cout <<" Enter the number to find Square root:" << endl;
     cin>>num;
 
     int arr[size];
 
-    cout<<"Enter the elements of array:"<<endl;
+    cout <<" Enter the elements of array:" << endl;
     for(int i = 0; i < size; i++) {
         cin>>arr[i];
     }
 
-    cout<<"The Root is:"<<SquareRoot(arr,num,size);
+    int get = SquareRoot(arr,num,size);
+
+    if(get == -1) {
+      cout <<" Root not found" << endl;
+    }
+
+    else {
+      cout <<" The root is:" << get << endl;
+    }
 
 
 }

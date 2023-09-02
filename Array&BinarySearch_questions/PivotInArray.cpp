@@ -31,11 +31,11 @@ int main() {
 
 
     if(arr[e] <= key <= arr[8]) {
-        cout<<"bjfv"<<endl;
+        
         int srt = e;
         int end = 8;
         int mid = srt+(end-srt)/2;
-  cout<<"bjfv"<<endl;
+  
         while(srt < end) {
             if(arr[mid] == key) {
                 return mid;
