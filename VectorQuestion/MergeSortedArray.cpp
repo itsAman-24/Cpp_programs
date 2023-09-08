@@ -7,7 +7,7 @@ void mergeArray(int arr1[], int m, int arr2[], int n, int arr3[]) {
     int j = 0;
     int k = 0;
 
-    while(i<m && j<n) {
+    while(i < m && j < n) {
 
         if(arr1[i] < arr2[j]) {
             arr3[k] = arr1[i];
@@ -16,7 +16,7 @@ void mergeArray(int arr1[], int m, int arr2[], int n, int arr3[]) {
         }
 
         else {
-            arr3[k] = arr1[j];
+            arr3[k] = arr2[j];
             k++;
             j++;
         }
@@ -26,6 +26,7 @@ void mergeArray(int arr1[], int m, int arr2[], int n, int arr3[]) {
 
     while(i < m) {
         //copy kr rhe hai remaining elements ko
+        
         arr3[k] = arr1[i];
         k++;
         i++;
@@ -33,6 +34,7 @@ void mergeArray(int arr1[], int m, int arr2[], int n, int arr3[]) {
 
      while(j < n) {
          //copy kr rhe hai remaining elements ko
+         
         arr3[k] = arr2[j];
         k++;
         j++;
