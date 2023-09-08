@@ -19,9 +19,9 @@ void reverseString(vector<char>& s) {
 int main() {
     vector <char> name;
     name.push_back('e');
-     name.push_back('t');
-      name.push_back('u');
-       name.push_back('s');
+    name.push_back('t');
+    name.push_back('u');
+    name.push_back('s');
 
        reverseString(name);
 
