@@ -7,8 +7,8 @@ using namespace std;
 int main(){
 
     map<string,int> marksMap;   /* we use two data types in map becuz it is used to store the elements
-                                  as key value in pairs (in this we have pair of string and int) . each 
-                                  elements have unique key value.
+                                  as key and their values in pairs (in this we have pair of string and int).
+                                  Each value have unique key value.
                                 */
     marksMap["kaku"] = 8;
     marksMap["Harry"] = 65;

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <set>
 
 bool uniqueOccurrences(vector<int> &arr)
 }
@@ -16,8 +17,8 @@ bool uniqueOccurrences(vector<int> &arr)
 
     for (auto it : mp)
     {
-        int freq = it.second;
-        set.insert(freq);
+        int freq = it.second;    // it.first -> it points to key 
+        set.insert(freq);        // it.second -> it points to value 
     }
 
     // if size of mp is equalsize of set then it means all have unique occurance
