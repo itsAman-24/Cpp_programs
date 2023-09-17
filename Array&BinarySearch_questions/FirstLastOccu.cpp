@@ -63,8 +63,8 @@ int LastOccu(int arr[], int n, int key) {
 
 int main() {
    int arr[9] = {1,1,1,3,3,3,3,3,4};
-   cout<<"The first occurance is::"<<Firstoccu(arr,9,1)<<endl;
-   cout<<"The last occurance is::"<<LastOccu(arr,9,1)<<endl;
+   cout<<"The first occurance is::"<<Firstoccu(arr,9,3)<<endl;
+   cout<<"The last occurance is::"<<LastOccu(arr,9,3)<<endl;
 
-   cout<<"Total no. of occurance is::"<<(LastOccu(arr,9,1) - Firstoccu(arr,9,1)) + 1<<endl;   // formula for total no. of occurance of an element
+   cout<<"Total no. of occurance is::"<<(LastOccu(arr,9,3) - Firstoccu(arr,9,3)) + 1<<endl;   // formula for total no. of occurance of an element
 }

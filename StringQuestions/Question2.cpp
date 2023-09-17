@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-char ToLowerCase(char ch) {
-    if(ch >='a' && ch <='z') {
-        return ch;
+char ToLowerCase(char cha) {
+    if(cha >='a' && cha <='z') {
+        return cha;
     }
 
     else {
-        char temp = ch - 'A' + 'a';
+        char temp = cha - 'A' + 'a';
         return temp;
     }
 
@@ -19,9 +19,9 @@ bool palindrome(char ch[], int size) {
 
     while(s < e) {
 
-        if(ch[s] != ch[e]) {                     /* using two pointers approach for checking if 
-                                                 first element is equal to last element or not \
-                                                 if not equal then return 0 */
+        if( ToLowerCase (ch[s]) != ToLowerCase (ch[e]) ) {                     /* using two pointers approach for checking if 
+                                                                           first element is equal to last element or not \
+                                                                           if not equal then return 0 */
             return 0;
         }
 
@@ -37,9 +37,9 @@ bool palindrome(char ch[], int size) {
 }
 
 int main() {
-    char ch[5] = {'w','r','t','s','w'};
+    char ch[5] = {'W','r','t','R','w'};
 
-    cout << "Lower case is " <<  ToLowerCase('B') << endl;
+   // cout << "Lower case is " <<  ToLowerCase('B') << endl;
 
 
     bool check = palindrome(ch,5);
