@@ -47,8 +47,16 @@ int main() {
     // v.push_back(0);
     // v.push_back(13);
 
-    int arr[3][4] = {1,2,3,4,5,6,7,8,9,10,11,12};
+    int arr[3][4];
+    cout << " Enter the elements in the array-> " << endl;\
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 4; j++){
+            cin >> arr[i][j];
+        }
+        cout << endl;
+    }
 
+    cout << "The wave conversion of array is-> " << endl;
     flowPattern(arr,3);
 
 }

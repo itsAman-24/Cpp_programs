@@ -32,8 +32,7 @@ int main()
 {
   
   int m;
-  int n;
-
+  
   int arr1[100];
   int arr2[100];
   cout << "Enter the size of 1st array" << endl;
@@ -47,6 +46,8 @@ int main()
   {
     cin >> arr1[i];
   }
+
+  int n;
 
   cout << "Enter the size of 2nd array" << endl;
   cin >> n;
