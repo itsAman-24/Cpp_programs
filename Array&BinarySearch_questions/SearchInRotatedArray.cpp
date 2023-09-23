@@ -33,17 +33,34 @@ int main() {
         cin>>arr[i];
     }
     
-    int pivot = FindPivot(arr,size);
+   // int pivot = FindPivot(arr,size);
     
     int key;
     cout<<"Enter the key to search"<<endl;
     cin>>key;
+
+    int pivot = FindPivot(arr,size);
     
     if(pivot <= key <= arr[size-1]) {
 
-        int s = e;
+        int s = pivot;
+
+        for(int i = s; i < (size-1); i++) {
+            if(arr[i] == key) {
+                return i;
+            }
+        }
 
     }
+
+    else {
+        for(int i = pivot; i >= 0; i--) {
+            if(arr[i] == key) {
+                return i;
+            }
+        }
+    }
+
 
 
 }
