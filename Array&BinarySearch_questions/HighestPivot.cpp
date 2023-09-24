@@ -7,12 +7,13 @@ int pivot(int arr[], int size) {
     int mid = start + (end-start)/2;
 
     while(start < end) {
+
         if(arr[mid] > arr[0]) {
-            start = mid + 1;
+            start = mid;
         }
 
         else {
-            end = mid;
+            end = mid - 1;
         }
 
         mid = start + (end-start)/2;
@@ -34,5 +35,5 @@ int main() {
         cin >> arr[i];
     }
 
-   cout << pivot(arr,size) << endl;
+   cout << "The pivot element is-> " << pivot(arr,size) << endl;
 }
