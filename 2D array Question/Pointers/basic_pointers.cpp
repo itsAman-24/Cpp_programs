@@ -20,8 +20,7 @@ int main() {
 
     int **m = &ptr;
     cout << m << endl;
-    cout << **m << endl;
-
+   
     int j = 3;
     int *g = &j;
 
