@@ -29,6 +29,7 @@ int isArmstrong(int n) {
 }
 
 int main() {
+
     int number;
 
     printf("Enter a number: ");
@@ -36,7 +37,9 @@ int main() {
 
     if (isPrime(number)) {
         printf("%d is a prime number.\n", number);
-    } else {
+    }
+    
+    else {
         printf("%d is not a prime number.\n", number);
     }
 
@@ -46,6 +49,7 @@ int main() {
         printf("%d is not an Armstrong number.\n", number);
     }
 
-    return 0;
+    
 }
+
 
