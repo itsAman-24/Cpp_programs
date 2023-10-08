@@ -5,10 +5,12 @@ int fact(int n) {
     if(n == 0) {
         return 1;
     }
-    int small = fact(n-1);
-    int big = n * small;
+    // int small = fact(n-1);
+    // int big = n * small;
 
-    return big;
+    // return big;
+
+    return n * fact(n-1);  // just placing the small problem at its place and big problem at its place in return statement
 
 }
 
