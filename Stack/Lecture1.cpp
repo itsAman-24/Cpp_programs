@@ -82,20 +82,12 @@ int main()
     push(26);
 
     print1();
-    cout << endl
-         << "The poped element is-> " << pop() << endl
-         << endl;
-    cout << endl
-         << "The poped element is-> " << pop() << endl
-         << endl;
-    cout << endl
-         << "The poped element is-> " << pop() << endl
-         << endl;
-    cout << endl
-         << "The poped element is-> " << pop() << endl
-         << endl;
-    cout << endl
-         << "The poped element is-> " << pop() << endl
-         << endl;
+    
+    cout << endl << "The poped element is-> " << pop() << endl << endl;
+    cout << endl << "The poped element is-> " << pop() << endl << endl;
+    cout << endl << "The poped element is-> " << pop() << endl << endl;
+    cout << endl << "The poped element is-> " << pop() << endl << endl;
+    cout << endl << "The poped element is-> " << pop() << endl << endl;
+
     print2();
 }
