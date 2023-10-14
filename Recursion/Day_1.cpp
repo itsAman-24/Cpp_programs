@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 
 int fact(int n) {
@@ -20,5 +21,5 @@ int main() {
     cout << "Enter the value of num: " << endl;
     cin >> num;
 
-    cout << fact(num);
+    cout << "The factorial of " << num << " is " << fact(num);
 }
