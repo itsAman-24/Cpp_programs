@@ -8,6 +8,7 @@ void selectionSort(int *arr,int i,int size) {
     }
     
     int minIndex = i;
+    
     for(int j = i+1; j < size; j++) {
         if(arr[j] <= arr[minIndex]) 
             minIndex = j;

@@ -2,6 +2,9 @@
 using namespace std;
 
 int powerRoot(int n) {
+
+    cout << "Here call is for: " << n << endl;
+
     if(n == 0) {
     return 1;
     }
@@ -9,9 +12,10 @@ int powerRoot(int n) {
     
     // int smallerproblem = powerRoot(n-1);
     // int biggerproblem = 2 * smallerproblem;
+
     
 
-    return 2 * powerRoot(n-1);
+    return 2 * 2 * powerRoot(n/2);
 
    
 }
@@ -19,9 +23,10 @@ int powerRoot(int n) {
 int main() {
    
    int n;
-   cout << "Enter the number" << endl;
+   cout << "Enter how many times you want to multiply two-> " << endl;
    cin >> n;
-
-   cout <<"The Power is " << powerRoot(n);
+   
+   cout << endl;
+   cout <<"The Answer is-> " << powerRoot(n);
 
 }
