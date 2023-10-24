@@ -4,8 +4,10 @@ using namespace std;
 void merge(int *arr, int s, int e) {
     
     int mid = s+(e-s)/2;
-    int L1 = mid - s + 1;
-    int L2 = e - mid;
+
+    int L1 = mid - s + 1;    //Length of first array
+    int L2 = e - mid;        //Length of second array
+
     int *First_arr = new int[L1];
     int *Second_arr = new int[L2];
 
@@ -45,6 +47,9 @@ void merge(int *arr, int s, int e) {
         }
 
     }
+
+    delete []First_arr;
+    delete []Second_arr;
 
 }
 
