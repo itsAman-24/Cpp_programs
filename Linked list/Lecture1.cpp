@@ -28,7 +28,7 @@ void insertAtTail(Node* &Tail, int data) {      // Function for insertion at end
 
     Node* temp = new Node(data);
     Tail -> next = temp;
-    Tail = Tail -> next;
+    Tail = Tail -> next;  // by this line we are pointing tail to the last node
  
 }
 

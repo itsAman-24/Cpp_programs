@@ -28,8 +28,8 @@ using namespace std;
         findSet(nums,output,index,ans);
         
         for(int i = 0; i < 7; i++) {
-        for(int j = 0; j < 7; j++) {
-            cout << ans[i][j] << " ";
+           for(int j = 0; j < 7; j++) {
+               cout << ans[i][j] << " ";
         }
     }
 

@@ -1,8 +1,9 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-int marco = 3.14;
+#define macro 3.14
+int global = 45;
 
 int main() {
-    float j = 3 * marco;
-    cout << "The answer is-> " << j << endl;
+    float j = 3 * M_PI;
+    cout <<setprecision(4)<< "The answer is-> " << j << endl;
 }
