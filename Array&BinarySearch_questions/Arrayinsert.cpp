@@ -6,8 +6,7 @@ int main()
     int n;
     cout << "Enter the n:" << endl;
     cin >> n;
-    int size = n + 1;
-    int arr[size];
+    int arr[n+1];
     cout<<"Enter the elements in the array:"<<endl;
 
     for(int j = 0; j <= n; j++){
@@ -22,14 +21,14 @@ int main()
     cout << "Enter the index where you want to insert the number:" << endl;
     cin >> index;
 
-    for (int i = size; i > index; i--)
+    for (int i = n; i > index; i--)
     {
         arr[i] = arr[i - 1];
     }
 
     arr[index] = number;
 
-    for(int i = 0; i <= size; i++){
+    for(int i = 0; i <= n; i++){
         cout<<arr[i]<<" ";
     }
     return 0;
