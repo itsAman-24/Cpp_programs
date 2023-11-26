@@ -10,21 +10,32 @@ class node {
         this -> data = d;
         this -> next = NULL;
     }
+
+    ~node() {
+        int value = this -> data;
+        if(this -> next != NULL) {
+            delete next;
+            next = NULL;
+        }
+
+        cout << " Deleting memory for " << value << endl;
+
+    }
 };
 
-void insertNode(node* &tail, int element, int data) {
+void insertNode(node* &head, int element, int data) {
     //Empty list
 
-    if(tail == NULL) {
+    if(head == NULL) {
         node* temp = new node(data);
-        tail = temp;
+        head = temp;
         temp -> next = temp;
     }
 
     //Non Empty list
 
     else {
-        node* current = tail;
+        node* current = head;
 
         while(current -> data != element) {
             current = current -> next;
@@ -39,13 +50,42 @@ void insertNode(node* &tail, int element, int data) {
 
 }
 
-void print(node* tail) {
-    node* temp = tail;
-    do {
-        cout << tail -> data << " ";
-        tail = tail -> next;
+void deleteNode(node* head, int value) {
+    //Empty list
+    if(head == NULL) {
+        cout << "Your list is empty... " << endl;
+        return;
+    }
 
-    } while(tail != temp);
+    else {
+        //Non Empety list
+        node* prev = head;
+        node* current = head -> next;
+        
+        while(current -> data == value) {
+            prev = current;
+            current = current -> next;
+        }
+
+        prev -> next = current -> next;
+        if(head == current) {
+            head = prev;
+        }
+        current -> next = NULL;
+        delete current;
+
+           
+
+    }
+}
+
+void print(node* head) {
+    node* temp = head;
+    do {
+        cout << head -> data << " ";
+        head = head -> next;
+
+    } while(head != temp);
 
     cout << endl;
 
@@ -53,28 +93,31 @@ void print(node* tail) {
 
 int main() {
    // node* newnode = new node(54);
-    node* tail = NULL;
+    node* head = NULL;
 
-    insertNode(tail,4,23);
-    print(tail);
+    insertNode(head,4,23);  // it means jha v 4 mile uske agle node pr 23 insert krdo
+    print(head);
 
-    insertNode(tail,23,35);
-    print(tail);
+    insertNode(head,23,35);   
+    print(head);
 
     
-    insertNode(tail,35,3);
-    print(tail);
+    insertNode(head,35,3);
+    print(head);
     
     
-    insertNode(tail,3,50);
-    print(tail);
+    insertNode(head,3,50);
+    print(head);
     
     
-    insertNode(tail,50,11);
-    print(tail);
+    insertNode(head,50,11);
+    print(head);
     
     
-    insertNode(tail,35,36);
-    print(tail);
+    insertNode(head,35,36);
+    print(head);
+
+    deleteNode(head,23);
+    print(head);
     
 }
