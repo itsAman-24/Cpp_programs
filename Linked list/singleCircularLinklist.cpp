@@ -23,19 +23,58 @@ class node {
     }
 };
 
-void insertNode(node* &head, int element, int data) {
+node*  insertAtBeg(node* &tail,int data) {
     //Empty list
 
-    if(head == NULL) {
+    if(tail == NULL) {
         node* temp = new node(data);
-        head = temp;
+        tail = temp;
+        temp -> next = temp;
+    }
+
+    else {
+    //Non Empty List
+
+       node* newnode = new node(data);
+       newnode -> next = tail -> next;
+       tail -> next = newnode;
+       return tail;
+    }
+    
+ 
+}
+
+node* insertAtEnd(node* &tail, int data) {
+    //Empty list
+    if(tail == NULL) {
+        node* temp = new node(data);
+        tail = temp;
+        temp -> next = temp;
+    }
+
+    //non empty list
+    else {
+        node* newnode = new node(data);
+        newnode -> next = tail -> next;
+        tail -> next = newnode;
+        tail = newnode;
+        return tail;
+    }
+}
+
+void insertNode(node* &tail, int element, int data) {
+    //Empty list
+
+    if(tail == NULL) {
+        node* temp = new node(data);
+        tail = temp;
         temp -> next = temp;
     }
 
     //Non Empty list
 
     else {
-        node* current = head;
+        node* current = tail;
 
         while(current -> data != element) {
             current = current -> next;
@@ -50,17 +89,17 @@ void insertNode(node* &head, int element, int data) {
 
 }
 
-void deleteNode(node* head, int value) {
+void deleteNode(node* tail, int value) {
     //Empty list
-    if(head == NULL) {
+    if(tail == NULL) {
         cout << "Your list is empty... " << endl;
         return;
     }
 
     else {
-        //Non Empety list
-        node* prev = head;
-        node* current = head -> next;
+        //Non Empty list
+        node* prev = tail;
+        node* current = tail -> next;
         
         while(current -> data == value) {
             prev = current;
@@ -68,8 +107,8 @@ void deleteNode(node* head, int value) {
         }
 
         prev -> next = current -> next;
-        if(head == current) {
-            head = prev;
+        if(tail == current) {
+            tail = prev;
         }
         current -> next = NULL;
         delete current;
@@ -79,13 +118,13 @@ void deleteNode(node* head, int value) {
     }
 }
 
-void print(node* head) {
-    node* temp = head;
+void print(node* &tail) {
+    node* temp = tail;
     do {
-        cout << head -> data << " ";
-        head = head -> next;
+        cout << tail -> next -> data << " ";
+        tail = tail -> next;
 
-    } while(head != temp);
+    } while(tail != temp);
 
     cout << endl;
 
@@ -93,31 +132,46 @@ void print(node* head) {
 
 int main() {
    // node* newnode = new node(54);
-    node* head = NULL;
+    node* tail = NULL;
 
-    insertNode(head,4,23);  // it means jha v 4 mile uske agle node pr 23 insert krdo
-    print(head);
+    // insertNode(tail,4,23);  // it means jha v 4 mile uske agle node pr 23 insert krdo
+    // print(tail);
 
-    insertNode(head,23,35);   
-    print(head);
+    // insertNode(tail,23,35);   
+    // print(tail);
 
     
-    insertNode(head,35,3);
-    print(head);
+    // insertNode(tail,35,3);
+    // print(tail);
     
     
-    insertNode(head,3,50);
-    print(head);
+    // insertNode(tail,3,50);
+    // print(tail);
     
     
-    insertNode(head,50,11);
-    print(head);
+    // insertNode(tail,50,11);
+    // print(tail);
     
     
-    insertNode(head,35,36);
-    print(head);
+    // insertNode(tail,35,36);
+    // print(tail);
 
-    deleteNode(head,23);
-    print(head);
+    // deleteNode(tail,23);
+    // print(tail);
+
     
+    
+
+    
+    insertAtBeg(tail,24);
+    print(tail);
+    insertAtEnd(tail,23);
+    print(tail);
+    insertAtEnd(tail,25);
+    print(tail);
+    deleteNode(tail,25);
+    print(tail);
+    
+
+    cout << endl << tail->data << " ";
 }
