@@ -149,12 +149,48 @@ void print(node* &head) {
     cout << endl;
 }
 
-int main() {
-    // node* n1 = new node(10);  // this case defines the case where we had a single node in starting
-    // node* head = n1; 
-    // node* tail = n1;
+node* reverseList(node* head, node* &tail) {
+    if(head == NULL || head-> next == NULL) {
+        return head;
+    }
 
-    node* head = NULL;      // this case defines the case where we have no node in starting
+    // else {
+    //     node* current = head;
+    //     node* forward = current -> next;
+    //     reverseList(head,tail);
+    //     current -> next = current -> prev;
+    //     current -> prev = forward;
+    // }
+    node* current = head;
+    node* forward = NULL;
+    //node* newTail = NULL;
+
+    while(current != NULL) {
+        forward = current -> next;
+        current -> next = current -> prev;
+        current -> prev = forward;
+       
+    //     newTail = current;  // Update the newTail pointer as we iterate through the list
+    //     current = forward;
+    // }
+
+    // tail = head;  // Update tail to point to the original head
+    // head = newTail;  // Update head to point to the newTail
+
+    // return head;
+     current = current->prev;
+    }
+
+    if (forward != nullptr) {
+        head = forward->prev; // Update head to the new head
+    }
+
+    return head;
+}
+
+int main() {
+
+    node* head = NULL;     
     node* tail = NULL;
 
     print(head);
@@ -165,26 +201,9 @@ int main() {
     insertAtHead(head,tail,80);
     insertAtTail(tail,head,900);
     print(head);
-    cout << "The length of linklist is " << getLength(head) << endl;
 
-    insertAtTail(tail,head,90);
-    print(head);
-    cout << "The length of linklist is " << getLength(head) << endl;
-
-    insertAtPosition(head,tail,3,100);
+    reverseList(head,tail);
     print(head);
     
-    insertAtPosition(head,tail,1,101);
-    print(head);
-
-    insertAtPosition(head,tail,7,102);
-    print(head);
-
-    cout << "The length of linklist is " << getLength(head) << endl;
-
-    deleteNode(3,head,tail);
-    print(head);
-    cout << "The length of linklist is " << getLength(head) << endl;
-
     
 }
