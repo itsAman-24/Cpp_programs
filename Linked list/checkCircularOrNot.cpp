@@ -1,133 +1,122 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 class node {
+
     public:
     int data;
     node* next;
 
-    node(int d) {
-        this -> data = d;
+    node(int data) {
+        // node* n1 = new node(data);
+
+        this -> data = data;
         this -> next = NULL;
     }
 
     ~node() {
         int value = this -> data;
-        if(this -> next != NULL) {
+        if(this->next != NULL) {
             delete next;
-            next = NULL;
+            this->next = NULL;
         }
 
-        cout << " Deleting memory for " << value << endl;
-
+        cout << "Deleting the data of node which is " << value << endl;
     }
+
+
 };
 
-node*  insertAtBeg(node* &tail,int data) {
-    //Empty list
-
-    if(tail == NULL) {
-        node* temp = new node(data);
-        tail = temp;
-        temp -> next = temp;
-    }
-
-    else {
-    //Non Empty List
-
-       node* newnode = new node(data);
-       newnode -> next = tail -> next;
-       tail -> next = newnode;
-       return tail;
-    }
-    
- 
+void insertAtHead(node* &head ,int data) {
+    node* temp = new node(data);
+    temp -> next = head;
+    head = temp;
 }
 
-node* insertAtEnd(node* &tail, int data) {
-    //Empty list
-    if(tail == NULL) {
-        node* temp = new node(data);
-        tail = temp;
-        temp -> next = temp;
-    }
+void insertAtTail(node* &tail, int data) {
+    node* temp = new node(data);
+    tail -> next = temp;
+    tail = tail -> next;   // pointing tail to the last node of list
+}
 
-    //non empty list
-    else {
-        node* newnode = new node(data);
-        newnode -> next = tail -> next;
-        tail -> next = newnode;
-        tail = newnode;
-        return tail;
+
+void print(node* &head) {
+
+    if(head == NULL) {
+        cout << "List is empty" << endl;
+        return;
+    }
+    node* temp;
+    temp = head;
+
+    while(temp != NULL) {
+        cout << temp -> data << endl;
+        temp = temp -> next;
     }
 }
 
-void insertNode(node* &tail, int element, int data) {
-    //Empty list
+void insertAtPosition(node* &head,node* &tail, int data, int posi) {
 
-    if(tail == NULL) {
-        node* temp = new node(data);
-        tail = temp;
-        temp -> next = temp;
-    }
-
-    //Non Empty list
-
-    else {
-        node* current = tail;
-
-        while(current -> data != element) {
-            current = current -> next;
-        }
-
-        //Element found 
-        node* newnode = new node(data);
-        newnode -> next = current -> next;
-        current -> next = newnode;
-
-    }
-
-}
-
-void deleteNode(node* tail, int value) {
-    //Empty list
-    if(tail == NULL) {
-        cout << "Your list is empty... " << endl;
+    if(posi == 1) {                // if user wants to insert at first position then we have to use insertAtHead function
+        insertAtHead(head,data);
         return;
     }
 
-    else {
-        //Non Empty list
-        node* prev = tail;
-        node* current = tail -> next;
+    node* temp = head;
+    int count = 1;
+
+    while(count < posi-1) {
+        temp = temp -> next;
+        count++;
+    }
+
+    if(temp -> next == NULL) {    // when inserting at end by this line of code we are updating the tail pointer nd pointing it to last node
+        insertAtTail(tail,data);
+    }
+
+    node* insert = new node(data);
+
+    insert -> next = temp -> next;
+    temp -> next = insert;
+
+
+}
+
+
+void deleteNode(int position, node* & head, node* & tail) {
+    //Code for deleting starting node
+    if(position == 1) {
+        node* temp = head;
+        head = head -> next;
         
-        while(current -> data == value) {
-            prev = current;
-            current = current -> next;
+        temp -> next = NULL;
+        delete temp;
+
+    }
+    
+    //Code for deleting last and middle node
+    else {
+        node* previous = NULL;
+        node* current = head;
+
+        int count = 1;
+        while(count < position) {
+            previous = current;
+            current = current->next;
+            count++;
+        }
+        
+        //when last node is deleted then this will change tail pointing on current last node
+        if(current -> next == NULL) {
+           tail = previous;
         }
 
-        prev -> next = current -> next;
-        if(tail == current) {
-            tail = prev;
-        }
+        previous->next = current->next;
+        
         current -> next = NULL;
         delete current;
 
-           
-
     }
-}
-
-void print(node* &tail) {
-    node* temp = tail;
-    do {
-        cout << tail -> next -> data << " ";
-        tail = tail -> next;
-
-    } while(tail != temp);
-
-    cout << endl;
-
 }
 
 bool IsCircularList(node* head) {
@@ -149,54 +138,47 @@ bool IsCircularList(node* head) {
 
 }
 
+
 int main() {
-   // node* newnode = new node(54);
-    node* tail = NULL;
-
-    // insertNode(tail,4,23);  // it means jha v 4 mile uske agle node pr 23 insert krdo
-    // print(tail);
-
-    // insertNode(tail,23,35);   
-    // print(tail);
+    
+    node* n1 = new node(45);
+   
+    node* head = n1;
+    node* tail = n1;
 
     
-    // insertNode(tail,35,3);
-    // print(tail);
+    insertAtHead(head,2000);
+    insertAtHead(head,2001);
+    insertAtTail(tail,148);
+    insertAtTail(tail,4500);
+    insertAtPosition(head,tail,0,1);
+    insertAtPosition(head,tail,101,4);
     
-    
-    // insertNode(tail,3,50);
-    // print(tail);
-    
-    
-    // insertNode(tail,50,11);
-    // print(tail);
-    
-    
-    // insertNode(tail,35,36);
-    // print(tail);
+    cout << "Befor deletion" << endl;
+    print(head);
 
-    // deleteNode(tail,23);
-    // print(tail);
+    cout << "HEAD " << head-> data << endl;
+    cout << "Tail " << tail-> data << endl;  
 
-    
-    
+    cout << "After deletion" << endl;
+    deleteNode(5,head,tail);
+    print(head);
 
-    
-    insertAtBeg(tail,24);
-    print(tail);
-    insertAtEnd(tail,23);
-    print(tail);
-    insertAtEnd(tail,25);
-    print(tail);
+    cout << "HEAD " << head-> data << endl;
+    cout << "Tail " << tail-> data << endl; 
 
-    if(IsCircularList(tail)) {
-        cout << "This List is circular in nature " <<  endl;
+
+    cout << "Checking the nature of the list... " << endl; 
+
+    if(IsCircularList(head)) {
+        cout << endl << "This List is circular in nature " << endl;
     }
-
+    
     else {
-        cout << "This List is not circular in nature " << endl << endl;
+        cout << endl <<  "This List is not circular in nature " << endl;
     }
-    
-    cout << endl << "Tail is: ";
-    cout << endl << tail -> data << " ";
+
+
+
+
 }

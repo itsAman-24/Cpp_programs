@@ -14,11 +14,11 @@ int main() {
 
     m[1] = "Aman";    // this is how we take input for a map in [] square bracets we take key and then we assign value to that key
     m[3] = "Pandey";
-    m[2] = "Deep";
+    m[2] = "Deepu";
     m[18] = "Singh";
     m[0] = "Jamun";
 
-    m.insert( {9,"Rahul"} );   // Another way to take input in a map
+    m.insert( {9,"Arru"} );   // Another way to take input in a map
 
     cout << "Before erase->" << endl;
 

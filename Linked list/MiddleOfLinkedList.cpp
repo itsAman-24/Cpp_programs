@@ -68,7 +68,7 @@ node* midNode(node* &head) {
     }
     
 }
-/*We are using this two pointers approach in which fast pointer will jump two steps and the slow will jump one step in each round 
+/*We are using this two pointers approach (((Floyd’s cycle finding algorithm or Hare-Tortoise algorithm))) in which fast pointer will jump two steps and the slow will jump one step in each round 
   and when fast will reach the NUll (means ending of linkedlist) then the slow pointer will be pointing to the center of the list 
   (middle node)   [When fast will complete the list traversal slow will be at half of the list as it just jumps one step while fast
   jumps two steps] */

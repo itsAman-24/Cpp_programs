@@ -137,6 +137,29 @@ bool IsCircularList(node* head) {
     return false;
 
 }
+//1ST APPROACH (By using MAP)
+bool deteactLoop(node* head) {    //This function will check wheather the loop or cycle is present in your list or not 
+    if(head == NULL) {
+        return false;
+    }
+
+    node* temp = head;
+    map<node*,bool> visited;
+
+    while(temp != NULL) {
+        //this case shows that it this list has a loop present
+        if(visited[temp] == true) {
+            cout << "The loop OR cycle starts from " << temp -> data << endl;
+            return true;
+        }
+
+        visited[temp] = true;
+
+        temp = temp -> next;
+    }
+
+    return false;
+}
 
 node* floyddeteactLoop1(node* head) {
     if(head == NULL) {
@@ -166,39 +189,6 @@ node* floyddeteactLoop1(node* head) {
 
     
 }
-
-node* floyddeteactLoopStarting(node* head) {
-    if(head == NULL) {
-        return NULL;
-    }
-    node* intersection = floyddeteactLoop1(head);
-    node* slow = head;
-
-    while(slow != intersection) {
-        slow = slow -> next;
-        intersection = intersection -> next;
-    }
-
-    return slow;
-
-    
-}
-
-void removeLoop(node* head) {             //This will remove the loop from list
-    if(head == NULL) {
-        return;
-    }
-
-    node* startingOfLoop = floyddeteactLoopStarting(head);
-    node* temp = startingOfLoop;
-
-    while(temp != startingOfLoop) {
-        temp = temp -> next;
-    }
-
-    temp -> next = NULL;
-}
-
 
 int main() {
     
@@ -239,7 +229,15 @@ int main() {
         cout << endl <<  "This List is not circular in nature " << endl;
     }
 
-    cout << "The starting node of loop or cycle in list is: " << floyddeteactLoopStarting(head) -> data << endl;
+    //tail -> next = head -> next -> next -> next;  // here we are creating a loop in the list
+
+    if(floyddeteactLoop1(head) != NULL ) {
+        cout << endl << "This List has loop " << endl;
+    }
+    
+    else {
+        cout << endl <<  "This List has no loop " << endl;
+    }
 
 
 
