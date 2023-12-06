@@ -139,6 +139,35 @@ bool IsCircularList(node* head) {
 }
 
 
+node* floyddeteactLoop1(node* head) {
+    if(head == NULL) {
+        return NULL;
+    }
+
+    node* slow = head;
+    node* fast = head;
+
+    while(slow != NULL && fast != NULL) {
+        fast = head -> next;
+
+        if(fast != NULL) {
+            fast = fast -> next;
+        }
+
+        slow = slow -> next;
+
+        if(slow == fast) {
+            cout << "Loop is present at: " << slow -> data << endl;
+            return slow;
+        }
+
+    }
+
+    return NULL;
+
+    
+}
+
 int main() {
     
     node* n1 = new node(45);
@@ -177,8 +206,8 @@ int main() {
     else {
         cout << endl <<  "This List is not circular in nature " << endl;
     }
+    
+    
 
-
-
-
+    floyddeteactLoop1(head);
 }
