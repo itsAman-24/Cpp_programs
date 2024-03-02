@@ -5,7 +5,7 @@ void sort(int arr[], int size) {
     for(int i = 1; i < size; i++) {
         
         int temp = arr[i];
-        int j = i-1;
+        int j = i-1; // initialisation of j 
 
         for(; j >= 0; j--) {
 

@@ -25,11 +25,7 @@ int LongSubArraySum(vector<int> v1, long long k) {
         }
  
 }
-      
-  
     return maxLength;
-
-
 }
 
 
