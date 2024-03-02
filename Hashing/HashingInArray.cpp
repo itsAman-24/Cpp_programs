@@ -1,8 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
 int main() {
  
    int array[6] = {1,5,3,6,1,0};
@@ -36,9 +34,5 @@ int main() {
         }
 
     }
-
-
-
-
 
 }

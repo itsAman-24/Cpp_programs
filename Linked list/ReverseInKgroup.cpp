@@ -1,3 +1,5 @@
+//Write a program to reverse the linked list in the group of K
+
 #include <iostream>
 using namespace std;
 
@@ -15,12 +17,12 @@ class node {
 
 
 void insertAtHead(node* &head, int data) {
+    node* newnode = new node(data);
     if(head == NULL) {
-        node* newnode = new node(data);
+        head = newnode;
     }
 
     else {
-        node* newnode = new node(data);
         newnode -> next = head;
         head = newnode;
     }
@@ -28,15 +30,14 @@ void insertAtHead(node* &head, int data) {
 }
 
 void insertAtEnd(node* &tail, int data) {
+    node* newnode = new node(data);
     if(tail == NULL) {
-        node* newnode = new node(data);
+        tail = newnode;
     }
 
     else {
-        node* newnode = new node(data);
-        newnode -> next = tail -> next;
         tail -> next = newnode;
-        tail = tail -> next;
+        tail = newnode;
     }
 }
 
@@ -49,7 +50,7 @@ void print(node* head) {
 }
 
 node* reverseInKgroup(node* head , int k) {
-    //base case
+    //Base case
     if(head == NULL) {
         return NULL;
     }
@@ -59,6 +60,7 @@ node* reverseInKgroup(node* head , int k) {
     node* forward = NULL;
     int count = 0;
 
+    //Ek baar kaam kro baki recursion smbhal lega 
     while(current != NULL && count < k) {
         forward = current -> next;
         current -> next = prev;
@@ -67,12 +69,12 @@ node* reverseInKgroup(node* head , int k) {
         count++;
     }
     
-    if(forward != NULL) {
+    //Recusion will do the task will all other nodes in K group
+    if(head != NULL) {
     head -> next = reverseInKgroup(forward,k);
     }
-
+    
     return prev;
-
 
 }
 
@@ -80,15 +82,19 @@ node* reverseInKgroup(node* head , int k) {
 int main() {
     node* temp = new node(64);
     node* head = temp;
+    node* tail = temp;
 
-    insertAtHead(head,65);
-    insertAtHead(head,66);
-    insertAtHead(head,67);
+    
+    insertAtEnd(tail,45);
+    insertAtEnd(tail,50);
+    insertAtEnd(tail,80);
+    insertAtEnd(tail,95);
 
     print(head);
+
     cout << "After reversing in K group " << endl;
 
-    reverseInKgroup(head,2);
+    head = reverseInKgroup(head,3);
     print(head);
    
 }

@@ -1,3 +1,8 @@
+//Write a program to reverse a singly linked list 
+
+/* APPROACH : We will use three pointers approach named as ( previous, current, forward ) and changing the current nodes -> next pointer to previous 
+,, after updating the next pointer of current node shift current to forward (current -> next) */
+
 #include<iostream>
 using namespace std;
 
@@ -15,12 +20,12 @@ class node{
 };
 
 void insertAtHead(node* &head, int data) {
+    node* newnode = new node(data);
     if(head == NULL) {
-        node* newnode = new node(data);
+        head = newnode;
     }
 
     else {
-        node* newnode = new node(data);
         newnode -> next = head;
         head = newnode;
     }
@@ -28,24 +33,25 @@ void insertAtHead(node* &head, int data) {
 }
 
 void insertAtEnd(node* &tail, int data) {
+    node* newnode = new node(data);
     if(tail == NULL) {
-        node* newnode = new node(data);
+        tail = newnode;
     }
 
     else {
-        node* newnode = new node(data);
-        newnode -> next = tail -> next;
         tail -> next = newnode;
-        tail = tail -> next;
+        tail = newnode;
     }
 }
 
 void print(node* head) {
+    // cout << "PNDY"<< endl;
     node* temp = head;
     while(temp != NULL) {
-        cout << temp -> data << " " << endl;
+        cout << temp -> data << " " ;
         temp = temp -> next;
     }
+    cout << endl;
 }
 
 node* ReverseList(node* &head) {
@@ -64,8 +70,9 @@ node* ReverseList(node* &head) {
             previous = current;
             current = forward;
         }
-        // head = forward;
-        return forward;
+
+        head = previous;
+        return head;
     }
 }
 
@@ -73,24 +80,21 @@ int main() {
     node* newnode = new node(34);
     node* head = newnode;
     node* tail = newnode;
-    
-    cout << "Without Insertion " << endl;
-    print(head);
-    cout << endl << "Inserting at head" << endl;
-    insertAtHead(head,67);
-    print(head);
-    cout << endl;
 
-    cout << endl << "Inserting at tail" << endl;
+    insertAtHead(head,67);
     insertAtEnd(tail,56);
+    insertAtEnd(tail,80);
+    insertAtEnd(tail,90);
+    cout << endl << "Here is your linked list ->  ";
     print(head);
 
     cout << endl << "Head is at: " << head -> data << endl;
     cout << "Tail is at : " << tail -> data << endl;
+    cout << endl;
 
-    cout << "Reversing the list" << endl;
-
+    cout << "Reversing the list ->  ";
     ReverseList(head);
     print(head);
+   
 }
 

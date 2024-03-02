@@ -77,6 +77,7 @@ int main()
     push(5);
     push(7);
     push(12);
+    
     print1();
 
     push(26);
